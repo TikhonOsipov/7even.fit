@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.tixon.a7evenfit.model.Meal" />
+        <import type="android.view.View" />
+        <variable
+            name="meal"
+            type="Meal" />
+    </data>
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <TextView
+            tools:text="12,3"
+            android:text="@{String.valueOf(meal.weight)}"
+            android:id="@+id/weight"
+            android:background="@drawable/grey_field_background"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_width="@dimen/grey_field_width"
+            android:textSize="@dimen/grey_field_text_size"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            tools:text="Name"
+            android:text="@{meal.name}"
+            android:id="@+id/name"
+            android:layout_toRightOf="@+id/weight"
+            android:layout_toLeftOf="@+id/nutritionFactsLayout"
+            android:textSize="14sp"
+            android:layout_marginLeft="2dp"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/nutritionFactsLayout"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                tools:text="12,3"
+                android:text="@{String.valueOf(meal.proteins)}"
+                android:id="@+id/proteins"
+                android:background="@drawable/grey_field_background"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_width="@dimen/grey_field_width"
+                android:textSize="@dimen/grey_field_text_size"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                tools:text="12,3"
+                android:text="@{String.valueOf(meal.fat)}"
+                android:id="@+id/fat"
+                android:background="@drawable/grey_field_background"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_width="@dimen/grey_field_width"
+                android:textSize="@dimen/grey_field_text_size"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                tools:text="12,3"
+                android:text="@{String.valueOf(meal.carbs)}"
+                android:id="@+id/carbs"
+                android:background="@drawable/grey_field_background"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_width="@dimen/grey_field_width"
+                android:textSize="@dimen/grey_field_text_size"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                tools:text="12,3"
+                android:text="@{String.valueOf(meal.calories)}"
+                android:id="@+id/calories"
+                android:background="@drawable/grey_field_background"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_width="@dimen/grey_field_width"
+                android:textSize="@dimen/grey_field_text_size"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View xmlns:android="http://schemas.android.com/apk/res/android"
+            android:background="#cccccc"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+    </RelativeLayout>
+</layout>

@@ -9,13 +9,19 @@ import com.tixon.a7evenfit.dagger.components.IScreensComponent;
 import com.tixon.a7evenfit.dagger.modules.ScreensModule;
 import com.tixon.a7evenfit.screens.base.BaseActivity;
 
+import javax.inject.Inject;
+
 public class MainActivity extends BaseActivity implements IMainView {
     IScreensComponent component;
+
+    @Inject
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        presenter.onCreate();
     }
 
     @Override

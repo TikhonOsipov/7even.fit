@@ -4,6 +4,9 @@ import com.tixon.a7evenfit.dagger.scopes.ActivityScope;
 import com.tixon.a7evenfit.screens.main_screen.IMainPresenter;
 import com.tixon.a7evenfit.screens.main_screen.IMainView;
 import com.tixon.a7evenfit.screens.main_screen.MainPresenter;
+import com.tixon.a7evenfit.screens.nutrition_diary_screen.INutritionDiaryPresenter;
+import com.tixon.a7evenfit.screens.nutrition_diary_screen.INutritionDiaryView;
+import com.tixon.a7evenfit.screens.nutrition_diary_screen.NutritionDiaryPresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,9 +17,14 @@ import dagger.Provides;
 @Module
 public class ScreensModule {
     private IMainView mainView;
+    private INutritionDiaryView nutritionDiaryView;
 
     public ScreensModule(IMainView view) {
         this.mainView = view;
+    }
+
+    public ScreensModule(INutritionDiaryView nutritionDiaryView) {
+        this.nutritionDiaryView = nutritionDiaryView;
     }
 
     @Provides
@@ -25,8 +33,19 @@ public class ScreensModule {
     }
 
     @Provides
+    public INutritionDiaryView provideNutritionDiaryView() {
+        return nutritionDiaryView;
+    }
+
+    @Provides
     @ActivityScope
     public IMainPresenter provideMainPresenter() {
         return new MainPresenter(mainView);
+    }
+
+    @Provides
+    @ActivityScope
+    public INutritionDiaryPresenter provideNutritionDiaryPresenter() {
+        return new NutritionDiaryPresenter(nutritionDiaryView);
     }
 }

@@ -1,5 +1,7 @@
 package com.tixon.a7evenfit.screens.main_screen;
 
+import com.tixon.a7evenfit.screens.nutrition_diary_screen.NutritionDiaryActivity;
+
 import javax.inject.Inject;
 
 /**
@@ -11,5 +13,10 @@ public class MainPresenter implements IMainPresenter {
     @Inject
     public MainPresenter(IMainView view) {
         this.view = view;
+    }
+
+    @Override
+    public void onCreate() {
+        view.startView(NutritionDiaryActivity.class);
     }
 }
