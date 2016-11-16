@@ -8,8 +8,11 @@
             name="meal"
             type="Meal" />
     </data>
-    <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="64dp">
+    <RelativeLayout
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
 
         <TextView
             tools:text="12,3"

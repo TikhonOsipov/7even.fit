@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="grey_field_width">36dp</dimen>
     <dimen name="grey_field_text_size">12sp</dimen>
+    <dimen name="section_meal_name_text_size">10sp</dimen>
 </resources>

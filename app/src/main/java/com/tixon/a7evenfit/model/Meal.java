@@ -5,15 +5,17 @@ package com.tixon.a7evenfit.model;
  */
 public class Meal {
     private String name;
+    private int order;
     private double proteins;
     private double fat;
     private double carbs;
     private double calories;
     private double weight;
 
-    public Meal(String name, double proteins, double fat,
+    public Meal(String name, int order, double proteins, double fat,
                 double carbs, double calories, double weight) {
         this.name = name;
+        this.order = order;
         this.proteins = proteins;
         this.fat = fat;
         this.carbs = carbs;
@@ -27,6 +29,14 @@ public class Meal {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
     }
 
     public double getProteins() {

@@ -13,7 +13,9 @@ import com.tixon.a7evenfit.dagger.modules.ScreensModule;
 import com.tixon.a7evenfit.databinding.ActivityNutritionDiaryBinding;
 import com.tixon.a7evenfit.model.Meal;
 import com.tixon.a7evenfit.screens.base.BaseActivity;
+import com.tixon.a7evenfit.screens.nutrition_diary_screen.adapter.MealGrouper;
 import com.tixon.a7evenfit.screens.nutrition_diary_screen.adapter.MealsRecyclerAdapter;
+import com.tixon.a7evenfit.ui.SectionedRecyclerAdapter;
 
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class NutritionDiaryActivity extends BaseActivity implements INutritionDi
     ActivityNutritionDiaryBinding binding;
 
     private MealsRecyclerAdapter adapter;
+    private SectionedRecyclerAdapter sectionedAdapter;
 
     @Inject
     NutritionDiaryPresenter presenter;
@@ -37,10 +40,10 @@ public class NutritionDiaryActivity extends BaseActivity implements INutritionDi
         binding = DataBindingUtil.setContentView(this, R.layout.activity_nutrition_diary);
         adapter = new MealsRecyclerAdapter();
 
+        binding.nutritionList.setLayoutManager(new LinearLayoutManager(this));
         presenter.onCreate();
 
-        binding.nutritionList.setLayoutManager(new LinearLayoutManager(this));
-        binding.nutritionList.setAdapter(adapter);
+        //binding.nutritionList.setAdapter(adapter);
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -50,6 +53,9 @@ public class NutritionDiaryActivity extends BaseActivity implements INutritionDi
     @Override
     public void setMeals(List<Meal> meals) {
         adapter.setMeals(meals);
+        sectionedAdapter = new SectionedRecyclerAdapter(adapter);
+        binding.nutritionList.setAdapter(sectionedAdapter);
+        sectionedAdapter.setGrouper(new MealGrouper(meals));
     }
 
     ///////////////////////////////////////////////////////////////////////////
