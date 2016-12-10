@@ -20,6 +20,14 @@
         <activity android:name=".screens.nutrition_diary_screen.NutritionDiaryActivity"
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme" />
+
+        <activity android:name=".screens.new_diary_record_screen.NewDiaryRecordActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/AppTheme" />
+
+        <activity android:name=".screens.meal_screen.MealActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

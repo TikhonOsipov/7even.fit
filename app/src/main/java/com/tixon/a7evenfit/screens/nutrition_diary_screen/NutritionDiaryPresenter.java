@@ -31,4 +31,9 @@ public class NutritionDiaryPresenter implements INutritionDiaryPresenter {
         meals.add(new Meal("Scrambled egg whites", 3, 7.7, 0, 0, 30.3, 3));
         view.setMeals(meals);
     }
+
+    @Override
+    public void addMealClicked() {
+
+    }
 }

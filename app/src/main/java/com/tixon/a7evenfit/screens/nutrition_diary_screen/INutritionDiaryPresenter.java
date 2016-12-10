@@ -5,4 +5,5 @@ package com.tixon.a7evenfit.screens.nutrition_diary_screen;
  */
 public interface INutritionDiaryPresenter {
     void onCreate();
+    void addMealClicked();
 }

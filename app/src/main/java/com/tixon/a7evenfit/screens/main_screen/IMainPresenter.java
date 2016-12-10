@@ -5,4 +5,6 @@ package com.tixon.a7evenfit.screens.main_screen;
  */
 public interface IMainPresenter {
     void onCreate();
+
+    void onDateSelected(int year, int month, int day);
 }

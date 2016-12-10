@@ -19,4 +19,9 @@ public class MainPresenter implements IMainPresenter {
     public void onCreate() {
         view.startView(NutritionDiaryActivity.class);
     }
+
+    @Override
+    public void onDateSelected(int year, int month, int day) {
+        view.startView(NutritionDiaryActivity.class);
+    }
 }

@@ -4,6 +4,10 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.tixon.a7evenfit.R;
 import com.tixon.a7evenfit.dagger.components.DaggerIScreensComponent;
@@ -32,18 +36,40 @@ public class NutritionDiaryActivity extends BaseActivity implements INutritionDi
     private SectionedRecyclerAdapter sectionedAdapter;
 
     @Inject
-    NutritionDiaryPresenter presenter;
+    INutritionDiaryPresenter presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_nutrition_diary);
+
+        binding.fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.addMealClicked();
+            }
+        });
+
         adapter = new MealsRecyclerAdapter();
 
         binding.nutritionList.setLayoutManager(new LinearLayoutManager(this));
         presenter.onCreate();
+    }
 
-        //binding.nutritionList.setAdapter(adapter);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.nutrition_diary_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.calendar:
+                Toast.makeText(this, "Calendar", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     ///////////////////////////////////////////////////////////////////////////
